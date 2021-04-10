@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>Canvas Demo</title>
+  </head>
+
+  <body>
+    <div class="buttonsContainer">
+      <div class="inner">
+        <button class="button" id="drawingLine">LineME?</button>
+        <button class="button" id="drawingRect">Rect?</button>
+        <button class="button" id="drawingStraight">StraightLine</button>
+        <button class="button" id="fill">fill</button>
+      </div>
+    </div>
+    <div id="container">
+      <canvas
+        id="canvas-real"
+        class="canvas"
+        height="100x"
+        width="100px"
+        title="canvas"
+      ></canvas>
+      <canvas
+        id="canvas-draft"
+        class="canvas"
+        height="100px"
+        width="100px"
+      ></canvas>
+
+      <!-- <button class="button" id="undo">Undo</button>
+      <button class="button" title="redo" id="redo">Redo</button> -->
+    </div>
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.2.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/javascript/canvasCommon.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/javascript/drawing-line.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/javascript/drawing-rectangle.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/javascript/drawing-straight.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/javascript/floodFill.js"
+    ></script>
+    <!-- <script
+      type="text/javascript"
+      src="assets/javascript/undo-redo.js"
+    ></script> -->
+
+    <script type="text/javascript" src="assets/javascript/init.js"></script>
+    <!-- You can add more functionalities here by adding more seperate class in javascript files here...-->
+    <script type="text/javascript">
+      // Switch based on User input, for example like clicking a button or something else. We will talk about this part in the section after this one.
+      // currentFunction = new DrawingLine(contextReal,contextDraft);
+    </script>
+  </body>
+</html>
