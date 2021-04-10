@@ -39,18 +39,7 @@ class TextFunction extends MouseMethods {
     );
   }
   // When the user presses and moves the mouse, what happens to the context?
-  onMouseDrag([xCoordinate, yCoordinate], event) {
-    // this.contextDraft.font = `${fontWidth}px Arial`;
-    // console.log($("#textInput").val());
-    // this.contextDraft.fillText(
-    //   $("#textInput").val(),
-    //   this.startingX,
-    //   this.startingY
-    // );
-    // this.contextDraft.fillStyle = colorFill;
-    // this.startingX = xCoordinate;
-    // this.startingY = yCoordinate;
-  }
+  onMouseDrag([xCoordinate, yCoordinate], event) {}
 
   // When the user moves the mouse, what happens to the context?
   onMouseMove([xCoordinate, yCoordinate], event) {}

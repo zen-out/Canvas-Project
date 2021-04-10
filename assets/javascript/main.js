@@ -21,6 +21,62 @@ let width = 3;
 let fontWidth = 3;
 let title = "Welcome";
 let subtitle = "Whaddup";
+let history = new Array();
+let counter = -1;
+
+function addToHistory() {
+  let currentSnapshot = new Image();
+  currentSnapshot = canvas.toDataURL();
+  console.log("saved to history");
+  history.push(currentSnapshot);
+
+  counter++;
+  console.log("Current counter:", counter);
+  console.log("Current array length", history.length);
+  console.log(history);
+}
+$("#undoButton").click(function () {
+  console.log("pressed undo");
+  console.log("current counter:", counter);
+  let image = new Image();
+  if (counter === 0) {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  } else {
+    image.src = history[counter - 1];
+  }
+  //   console.log(history[counter - 2]);
+  //   let image2 = new Image();
+  //   image2.src = history[counter - 1];
+  //   context.clearRect(0, 0, canvas.width, canvas.height);
+  image.onload = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(image, 0, 0, 500, 500);
+    history.pop();
+    counter--;
+  };
+
+  //   image.onload = function () {
+  //     context.clearRect(0, 0, canvas.width, canvas.height);
+  //     context.drawImage(image, 0, 0);
+  //   };
+  //   console.log("history length", history.length - 1);
+  //   console.log(history[counter]);
+  //   let image = history[counter];
+  //   let newImage = new Image();
+  //   newImage.src = history[counter].currentSrc;
+  //   console.log(image);
+  //   //   let image = new Image();
+  //   //   image.currentSrc = history[counter].currentSrc;
+  //   newImage.onload = function () {
+
+  //     console.log("Draw this back");
+  //     context.drawImage(newImage, 0, 0);
+  //     // not sure about this counter here
+  //     counter--;
+  //   };
+
+  //   currentFunction = new UndoFunction(context, contextDraft);
+});
 
 /**********************************************
  * Keep Track of Coordinates
@@ -116,6 +172,7 @@ $("#canvas").mouseup(function (event) {
     event
   );
 });
+
 // when user's cursor leaves the element
 $("#canvas").mouseleave(function (event) {
   dragging = false;

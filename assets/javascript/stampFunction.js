@@ -8,10 +8,12 @@ class RyanStamp extends MouseMethods {
   // When the user moves the mouse, what happens to the context?
   onMouseDown([xCoordinate, yCoordinate], event) {
     this.stamp(xCoordinate, yCoordinate);
+    addToHistory();
   }
   // When the user presses and moves the mouse, what happens to the context?
   onMouseDrag([xCoordinate, yCoordinate], event) {
     this.stamp(xCoordinate, yCoordinate);
+    addToHistory();
   }
 
   // When the user moves the mouse, what happens to the context?
@@ -37,10 +39,12 @@ class KellyStamp extends MouseMethods {
   // When the user moves the mouse, what happens to the context?
   onMouseDown([xCoordinate, yCoordinate], event) {
     this.stamp(xCoordinate, yCoordinate);
+    addToHistory();
   }
   // When the user presses and moves the mouse, what happens to the context?
   onMouseDrag([xCoordinate, yCoordinate], event) {
     this.stamp(xCoordinate, yCoordinate);
+    addToHistory();
   }
 
   // When the user moves the mouse, what happens to the context?
