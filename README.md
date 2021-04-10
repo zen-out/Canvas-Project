@@ -2,6 +2,8 @@
 
 ### Variable Names
 
+For more information, check out the github page at:https://lezzles11.github.io/Canvas-Project/
+
 Canvas Assignment
 
 - #canvas
