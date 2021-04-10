@@ -57,6 +57,7 @@ class CircleFunction extends MouseMethods {
     this.context.lineWidth = width;
     this.context.fill();
     this.context.stroke();
+    addToHistory();
   }
   onMouseLeave([xCoordinate, yCoordinate], event) {}
 }

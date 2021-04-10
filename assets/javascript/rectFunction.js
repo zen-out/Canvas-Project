@@ -43,6 +43,7 @@ class RectFunction extends MouseMethods {
       xCoordinate - this.startingX,
       yCoordinate - this.startingY
     );
+    addToHistory();
   }
   onMouseLeave([xCoordinate, yCoordinate], event) {}
 }

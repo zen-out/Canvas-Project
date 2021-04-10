@@ -73,6 +73,7 @@ class TextFunction extends MouseMethods {
       this.startingX,
       this.startingY + fontSize * 1.05
     );
+    addToHistory();
   }
   onMouseLeave([xCoordinate, yCoordinate], event) {}
 }

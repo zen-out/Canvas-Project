@@ -21,7 +21,9 @@ class EraseFunction extends MouseMethods {
 
   // When the user moves the mouse, what happens to the context?
   onMouseMove([xCoordinate, yCoordinate], event) {}
-  onMouseUp([xCoordinate, yCoordinate], event) {}
+  onMouseUp([xCoordinate, yCoordinate], event) {
+    addToHistory();
+  }
   onMouseLeave([xCoordinate, yCoordinate], event) {}
   draw(x, y) {
     this.context.lineTo(x, y);
