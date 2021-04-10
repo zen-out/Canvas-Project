@@ -11,11 +11,14 @@ let dragging = false;
 let colorStroke = "#42445A";
 let colorFill = "#42445A";
 let colorBg = "white";
+let textInput = $("#textInput");
+let textContent = "";
 let font = "50px Arial";
 let fontSize = 50;
 let lineJoin = "round";
 let lineCap = "round";
 let width = 3;
+let fontWidth = 3;
 let title = "Welcome";
 let subtitle = "Whaddup";
 
