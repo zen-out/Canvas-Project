@@ -1,12 +1,4 @@
 $(document).ready(function () {
-  $("#lineButton").click(function () {
-    console.log("Line button clicked");
-    currentFunction = new LineFunction(context);
-  });
-
-  $("#rectButton").click(function () {
-    console.log("Rectangle Button clicked");
-  });
 
   $("#circleButton").click(function () {
     console.log("Circle button clicked");

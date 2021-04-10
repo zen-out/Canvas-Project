@@ -1,41 +1,36 @@
 class LineFunction extends MouseMethods {
-  constructor(context) {
+  constructor(context, contextDraft) {
     super();
     this.context = context;
+    this.contextDraft = contextDraft;
   }
-  // this part will be in every class
-  applyStyling() {
+  applyStyling() {}
+  // When the user moves the mouse, what happens to the context?
+  onMouseDown([xCoordinate, yCoordinate], event) {
     this.context.strokeStyle = colorStroke;
     this.context.fillStyle = colorFill;
     this.context.lineWidth = width;
-  }
-  /**********************************************
-   * When the user moves the mouse, what happens to the context?
-   * ==================================
-   ***********************************************/
-  onMouseDown([xCoordinate, yCoordinate], event) {
-    this.applyStyling();
+    this.context.beginPath();
     this.context.moveTo(xCoordinate, yCoordinate);
+    this.draw(xCoordinate, yCoordinate);
   }
-  /**********************************************
-   * When the user presses and moves the mouse, what happens to the context?
-   * ==================================
-   ***********************************************/
-  onMouseDrag() {}
-  /**********************************************
-   * When the user moves the mouse, what happens to the context?
-   * ==================================
-   ***********************************************/
-  onMouseMove([xCoordinate, yCoordinate], event) {
-    this.applyStyling();
-    if (dragging) {
-      this.context.lineTo(xCoordinate, yCoordinate);
-      this.context.stroke();
-    }
+  // When the user presses and moves the mouse, what happens to the context?
+  onMouseDrag([xCoordinate, yCoordinate], event) {
+    this.draw(xCoordinate, yCoordinate);
   }
-  onMouseUp([xCoordinate, yCoordinate], event) {
-    this.applyStyling();
-    dragging = false;
-  }
+
+  // When the user moves the mouse, what happens to the context?
+  onMouseMove([xCoordinate, yCoordinate], event) {}
+  onMouseUp([xCoordinate, yCoordinate], event) {}
   onMouseLeave([xCoordinate, yCoordinate], event) {}
+  draw(x, y) {
+    this.context.lineTo(x, y);
+    this.context.moveTo(x, y);
+    this.context.closePath();
+    this.context.stroke();
+  }
 }
+$("#lineButton").click(function () {
+  console.log("Line button clicked");
+  currentFunction = new LineFunction(context, contextDraft);
+});

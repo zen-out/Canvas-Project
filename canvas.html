@@ -27,7 +27,18 @@
     />
     <style>
       canvas {
-        border: 1px solid black;
+        border: 1px black dotted;
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+      #canvasContainer {
+        height: 720px;
+      }
+      #canvasDraft {
+        background-color: transparent;
       }
     </style>
   </head>
@@ -60,26 +71,22 @@
     <div class="container">
       <div class="row">
         <div class="col-8">
-          <canvas
-            id="canvas"
-            width="500"
-            height="500"
-          ></canvas>
+          <div id="canvasContainer">
+            <canvas
+              id="canvasDraft"
+              width="500"
+              height="500"
+            ></canvas
+            ><canvas
+              id="canvas"
+              width="500"
+              height="500"
+            ></canvas>
+          </div>
           <p class="coordinateX"></p>
           <p class="coordinateY"></p>
         </div>
         <div class="col-4">
-          <!-- Text Style -->
-          <textarea
-            name="textBox"
-            id="textBox"
-            class="text-style"
-            cols="8"
-            rows="2"
-          ></textarea>
-
-          <!-- Text style -->
-
           <!-- Stroke -->
           <div class="row">
             <div class="col">
@@ -248,27 +255,52 @@
       defer
     ></script>
     <script
-      src="assets/javascript/lineFunction.js"
-      async
-      defer
-    ></script>
-    <script
       src="assets/javascript/main.js"
       async
       defer
     ></script>
     <script
+      src="assets/javascript/lineFunction.js"
+      async
+      defer
+    ></script>
+
+    <script
       src="assets/javascript/buttons.js"
       async
       defer
     ></script>
-    <script src="assets/javascript/colors.js"></script>
-    <script src="assets/javascript/circleFunction.js"></script>
+    <script
+      async
+      defer
+      src="assets/javascript/colors.js"
+    ></script>
+    <script
+      async
+      defer
+      src="assets/javascript/circleFunction.js"
+    ></script>
     <script src="assets/javascript/downloadUploadFunction.js"></script>
-    <script src="assets/javascript/eraseFunction.js"></script>
+    <script
+      async
+      defer
+      src="assets/javascript/eraseFunction.js"
+    ></script>
 
-    <script src="assets/javascript/rectFunction.js"></script>
-    <script src="assets/javascript/textFunction.js"></script>
-    <script src="assets/javascript/undoRedoFunction.js"></script>
+    <script
+      async
+      defer
+      src="assets/javascript/rectFunction.js"
+    ></script>
+    <script
+      async
+      defer
+      src="assets/javascript/textFunction.js"
+    ></script>
+    <script
+      async
+      defer
+      src="assets/javascript/undoRedoFunction.js"
+    ></script>
   </body>
 </html>

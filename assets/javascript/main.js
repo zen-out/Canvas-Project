@@ -4,11 +4,12 @@
  ***********************************************/
 let canvas = document.getElementById("canvas");
 let context = canvas.getContext("2d");
-
+let canvasDraft = document.getElementById("canvasDraft");
+let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
-let colorStroke = "rgba(255, 0, 0, 1)";
-let colorFill = "rgba(128, 0, 128, 1)";
+let colorStroke = "#42445A";
+let colorFill = "#42445A";
 let colorBg = "white";
 let font = "50px Arial";
 let fontSize = 50;
@@ -17,7 +18,6 @@ let lineCap = "round";
 let width = 3;
 let title = "Welcome";
 let subtitle = "Whaddup";
-context.strokeStyle = colorStroke;
 
 /**********************************************
  * Keep Track of Coordinates
@@ -50,12 +50,6 @@ canvas.addEventListener("mousedown", function (event) {
 function captureMouseEvent(event) {
   this.xCoordinate = event.offsetX;
   this.yCoordinate = event.offsetY;
-  console.log(
-    "X Coordinate",
-    xCoordinate,
-    "Y Coordinate",
-    yCoordinate
-  );
 }
 
 function drawStraight(x1, y1, x2, y2, ctx) {
@@ -64,6 +58,13 @@ function drawStraight(x1, y1, x2, y2, ctx) {
   ctx.lineTo(x2, y2);
   ctx.stroke();
 }
+
+/**********************************************
+ * Will move this out: do one thing at a time
+ * ==================================
+ ***********************************************/
+// rectangle
+
 /**********************************************
  * Event Listener on Canvas
  * ==================================
@@ -71,40 +72,50 @@ function drawStraight(x1, y1, x2, y2, ctx) {
  * - mousemove
  * - mouseup
  * - mouseleave
- ***********************************************/
-// when user presses the mouse
 
-currentFunction = new LineFunction(context);
+/**********************************************
+ * Always at bottom
+ * ==================================
+ ***********************************************/
 $("#canvas").mousedown(function (event) {
+  dragging = true;
   console.log("Mouse Down: when user presses mouse");
   captureMouseEvent(event);
   currentFunction.onMouseDown(
     [xCoordinate, yCoordinate],
     event
   );
-  dragging = true;
 });
 $("#canvas").mousemove(function (event) {
-  console.log("Mouse Move: when user is moving mouse");
+  //   console.log("Mouse Move: when user is moving mouse");
   captureMouseEvent(event);
 
-  currentFunction.onMouseMove(
-    [xCoordinate, yCoordinate],
-    event
-  );
+  if (dragging != true) {
+    currentFunction.onMouseMove(
+      [xCoordinate, yCoordinate],
+      event
+    );
+  } else {
+    console.log("Dragging");
+    currentFunction.onMouseDrag(
+      [xCoordinate, yCoordinate],
+      event
+    );
+  }
 });
 // when user released mouse
 $("#canvas").mouseup(function (event) {
+  dragging = false;
   console.log("Mouse Up: when user releases mouse");
   captureMouseEvent(event);
   currentFunction.onMouseUp(
     [xCoordinate, yCoordinate],
     event
   );
-  dragging = false;
 });
 // when user's cursor leaves the element
 $("#canvas").mouseleave(function (event) {
+  dragging = false;
   console.log(
     "Mouse Leave: when user's cursor leaves the element"
   );
@@ -113,11 +124,4 @@ $("#canvas").mouseleave(function (event) {
     [xCoordinate, yCoordinate],
     event
   );
-  dragging = false;
 });
-
-/**********************************************
- * Will move this out
- * ==================================
- ***********************************************/
-// color
