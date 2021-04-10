@@ -24,8 +24,6 @@ let subtitle = "Whaddup";
 let history = new Array();
 let counter = -1;
 
-
-
 /**********************************************
  * Keep Track of Coordinates
  * ==================================

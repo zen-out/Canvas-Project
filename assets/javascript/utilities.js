@@ -18,11 +18,11 @@ $("#undoButton").click(function () {
   let image = new Image();
   if (counter > 0) {
     image.src = history[counter - 1];
-  } else if (counter === 0) {
-    // image.src = history[counter];
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    history = new Array();
-    counter = -1;
+    //   } else if (counter === 0) {
+    //     // image.src = history[counter];
+    //     context.clearRect(0, 0, canvas.width, canvas.height);
+    //     history = new Array();
+    //     counter = -1;
   } else {
     context.clearRect(0, 0, canvas.width, canvas.height);
     counter = -1;
