@@ -1,15 +1,4 @@
 $(document).ready(function () {
-
-  $("#circleButton").click(function () {
-    console.log("Circle button clicked");
-  });
-
-  $("#eraseButton").click(function () {
-    console.log("Erase button clicked");
-  });
-  $("#colorButton").click(function () {
-    console.log("color button clicked");
-  });
   $("#textButton").click(function () {
     console.log("text button clicked");
   });
